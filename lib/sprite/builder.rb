@@ -66,7 +66,7 @@ module Sprite
     def write_image(image_info)
       results = []
       image_config = ImageConfig.new(image_info, config)
-      sources = image_config.sources
+      sources = image_config.sources.to_a.sort
       return unless sources.length > 0
 
       name = image_config.name
