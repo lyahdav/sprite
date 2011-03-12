@@ -80,9 +80,9 @@ Configuration of `sprite` is done via `config/sprite.yml`. It allows you to set 
   - `default_spacing:` defines the default pixel spacing between sprites (defaults to 0)
   - `resize_to:` width and height (in the format "120x60") to resize all source images to before composition. (defaults to no nil, or no resizing)
   - `class_separator:` used to generated the class name by separating the image name and sprite name (defaults to `-`)
-  - `add_datestamps`: whether or not to add datestamps to the generated background image urls. this will allow proper cache versioning (defaults to `true`)
+  - `add_datestamps`: whether or not to add datestamps to the generated background image urls. this will allow proper cache versioning (defaults to `true`).
   - `external_base`: change the base path for your images. (defaults to `/`)
-  - `url_helper`: css helper used to specify the url (defaults to `url`). For compass, you can set this to image-url instead
+  - `url_formatter`: allows you to specify the format of the background-url. The sprite background is passed in via sprintf formatting. (defaults to nil). This setting overrides external_base. If you use compass, you should set this value to "image-url('%s')"
 
 * `images:` section provides an array of configurations which define which image files are built, and where they get their sprites from. each image setup provides the following config options:
   - `name:` name of image (required)
@@ -175,6 +175,18 @@ Additional style generators are very easy to add. We have one for `style: sass` 
 `sprite` is provided as a command line helper. Deep web framework integration is not implemented at this time, however it shouldn't be needed. Just generate your sprites on your dev machine by running the command line, check in the resulting sprite images and stylesheets to your source control, and deploy!
 
 You can also easily script it out via capistrano. You could also run `sprite` on application start, or just about anywhere. Let me know what limitations you run into.
+
+## Configuring Sprite with Compass ##
+
+Sprite now works well with Compass with a few config tweaks. Since compass provides its own image-url helper which handles file versioning, it's useful to configure sprite to use that instead. Here's how to do it:
+
+    config:
+      # use the image-url helper with compass
+      url_formatter: "image-url('sprites/%s')"
+
+      # turn off datestamps as they will break compass's image-url helper
+      add_datestamps: false
+
 
 ## ABOUT `sprite` ##
 

@@ -63,7 +63,11 @@ module Sprite
     end
 
     def background_url(name)
-      "#{@config['url_helper']}('#{@config['external_base']}#{@config['image_output_path']}#{name}')"
+      if @config["url_formatter"]
+        sprintf(@config["url_formatter"], name)
+      else
+        "url('#{@config['external_base']}#{@config['image_output_path']}#{name}')"
+      end
     end
 
   protected
@@ -133,7 +137,6 @@ module Sprite
       @config['class_separator']    ||= '-'
       @config["sprites_class"]      ||= 'sprites'
       @config["default_spacing"]    ||= 0
-      @config['url_helper']      ||= 'url'
 
       unless @config.has_key?("add_datestamps")
         @config["add_datestamps"] = true
