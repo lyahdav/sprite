@@ -63,9 +63,13 @@ module Sprite
     end
 
   protected
-    def write_image(image_info)
+    def image_url(name)
+      @config['external_base'] + @config['image_output_path'] + name
+    end
+
+    def write_image(image)
       results = []
-      image_config = ImageConfig.new(image_info, config)
+      image_config = ImageConfig.new(image, config)
       sources = image_config.sources.to_a.sort
       return unless sources.length > 0
 
@@ -123,6 +127,7 @@ module Sprite
       @config['css_image_path']     ||= "/#{@config['image_output_path']}"
       @config['image_source_path']  ||= 'images/'
       @config['public_path']        ||= 'public/'
+      @config['external_base']      ||= '/'
       @config['default_format']     ||= 'png'
       @config['class_separator']    ||= '-'
       @config["sprites_class"]      ||= 'sprites'
