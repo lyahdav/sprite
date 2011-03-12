@@ -64,7 +64,7 @@ module Sprite
 
   protected
     def image_url(name)
-      @config['external_base'] + @config['image_output_path'] + name
+      "#{@config['external_base']}#{@config['image_output_path']}#{name}"
     end
 
     def write_image(image)

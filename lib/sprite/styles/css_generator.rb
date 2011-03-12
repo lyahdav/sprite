@@ -18,9 +18,10 @@ module Sprite
         sprites_class = @builder.config['sprites_class'] ? ".#{@builder.config['sprites_class']}" : ""
 
         sprite_files.each do |sprite_file, sprites|
+          background_url = @builder.image_url(sprite_file)
           sprites.each do |sprite|
             f.puts "#{sprites_class}.#{sprite[:group]}#{@builder.config['class_separator']}#{sprite[:name]} {"
-            f.puts "  background: url('/#{@builder.config['image_output_path']}#{sprite_file}') no-repeat #{sprite[:x]}px #{sprite[:y]}px;"
+            f.puts "  background: url('#{background_url}') no-repeat #{sprite[:x]}px #{sprite[:y]}px;"
             f.puts "  width: #{sprite[:width]}px;"
             f.puts "  height: #{sprite[:height]}px;"
             f.puts "}"
