@@ -15,13 +15,13 @@ module Sprite
             f.puts ".#{@builder.config['sprites_class']}"
             @level += 1
           end
-          
+
           sprite_files.each do |sprite_file, sprites|
-            background_url = @builder.image_url(sprite_file)
+            background_url = @builder.background_url(sprite_file)
             sprites.each do |sprite|
               f.puts sass_line("&.#{sprite[:group]}#{@builder.config['class_separator']}#{sprite[:name]}")
               @level += 1
-              f.puts sass_line("background: url('#{background_url}') no-repeat #{sprite[:x]}px #{sprite[:y]}px")
+              f.puts sass_line("background: #{background_url} no-repeat #{sprite[:x]}px #{sprite[:y]}px")
               f.puts sass_line("width: #{sprite[:width]}px")
               f.puts sass_line("height: #{sprite[:height]}px")
               f.puts sass_line("")
@@ -30,12 +30,12 @@ module Sprite
           end
         end
       end
-      
+
       # write sass output with correct tab spaces prepended
       def sass_line(sass)
         "#{'  '*@level}#{sass}"
       end
-  
+
       def extension
         "sass"
       end

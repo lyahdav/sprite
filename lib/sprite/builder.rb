@@ -62,8 +62,8 @@ module Sprite
       "#{config['css_image_path']}#{sprite_file}"
     end
 
-    def image_url(name)
-      "#{@config['external_base']}#{@config['image_output_path']}#{name}"
+    def background_url(name)
+      "#{@config['url_helper']}('#{@config['external_base']}#{@config['image_output_path']}#{name}')"
     end
 
   protected
@@ -133,6 +133,7 @@ module Sprite
       @config['class_separator']    ||= '-'
       @config["sprites_class"]      ||= 'sprites'
       @config["default_spacing"]    ||= 0
+      @config['url_helper']      ||= 'url'
 
       unless @config.has_key?("add_datestamps")
         @config["add_datestamps"] = true

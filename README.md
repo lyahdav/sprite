@@ -82,6 +82,7 @@ Configuration of `sprite` is done via `config/sprite.yml`. It allows you to set 
   - `class_separator:` used to generated the class name by separating the image name and sprite name (defaults to `-`)
   - `add_datestamps`: whether or not to add datestamps to the generated background image urls. this will allow proper cache versioning (defaults to `true`)
   - `external_base`: change the base path for your images. (defaults to `/`)
+  - `url_helper`: css helper used to specify the url (defaults to `url`). For compass, you can set this to image-url instead
 
 * `images:` section provides an array of configurations which define which image files are built, and where they get their sprites from. each image setup provides the following config options:
   - `name:` name of image (required)
