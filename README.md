@@ -81,6 +81,7 @@ Configuration of `sprite` is done via `config/sprite.yml`. It allows you to set 
   - `resize_to:` width and height (in the format "120x60") to resize all source images to before composition. (defaults to no nil, or no resizing)
   - `class_separator:` used to generated the class name by separating the image name and sprite name (defaults to `-`)
   - `add_datestamps`: whether or not to add datestamps to the generated background image urls. this will allow proper cache versioning (defaults to `true`)
+  - `external_base`: change the base path for your images. (defaults to `/`)
 
 * `images:` section provides an array of configurations which define which image files are built, and where they get their sprites from. each image setup provides the following config options:
   - `name:` name of image (required)
