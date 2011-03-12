@@ -62,10 +62,11 @@ module Sprite
       "#{config['css_image_path']}#{sprite_file}"
     end
 
-  protected
     def image_url(name)
       "#{@config['external_base']}#{@config['image_output_path']}#{name}"
     end
+
+  protected
 
     def write_image(image)
       results = []
