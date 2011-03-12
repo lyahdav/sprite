@@ -19,9 +19,8 @@ or via installer: http://github.com/maddox/magick-installer/tree/master
 
 ### Install the `sprite` gem ###
 
-Install the `sprite` gem from gemcutter
+Install the `sprite` gem
 
-    gem sources -a http://gemcutter.org
     gem install sprite
 
 ## USAGE ##
@@ -179,7 +178,7 @@ You can also easily script it out via capistrano. You could also run `sprite` on
 
 `sprite` was originally based off of Richard Huang's excellent Rails plugin: [css_sprite](http://github.com/flyerhzm/css_sprite)
 
-Since then it's been rebuilt (with some reuse of the image generation code) to be a general purpose ruby executable, with hooks for merb/rails/sinatra
+Since then it's been rebuilt (with some reuse of the image generation code) to be a general purpose ruby executable.
 
 
 ## LICENSE  ##
