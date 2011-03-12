@@ -12,6 +12,7 @@ GEM
     linecache (0.43)
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
+    rake (0.8.7)
     rmagick (2.13.1)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
@@ -41,6 +42,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rake
   rmagick
   rspec (~> 2.0)
   ruby-debug
