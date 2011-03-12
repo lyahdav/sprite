@@ -2,6 +2,9 @@ Gem::Specification.new do |s|
   s.name = "sprite"
   s.version = "0.2.0"
 
+  s.default_executable = "sprite"
+  s.executables = ["sprite"]
+
   s.authors = ["Jacques Crocker", "Alf Mikula"]
   s.summary = "generate your css and sass sprites automagically"
   s.description = "sprite is a ruby executable that to easily generate sprites along with css, sass"
