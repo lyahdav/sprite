@@ -11,7 +11,7 @@ module Sprite
         File.open(File.join(Sprite.root, path), 'w') do |f|
           add_else = false
 
-          f.puts "= sprite($group_name, $image_name, $offset=0)"
+          f.puts "= sprite($group_name, $image_name, $offset: 0)"
           sprite_files.each do |sprite_file, sprites|
             background_url = @builder.background_url(sprite_file)
             sprites.each do |sprite|
