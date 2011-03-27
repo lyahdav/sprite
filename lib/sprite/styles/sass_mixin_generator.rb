@@ -11,7 +11,7 @@ module Sprite
         File.open(File.join(Sprite.root, path), 'w') do |f|
           add_else = false
 
-          f.puts "= sprite(!group_name, !image_name, !offset=0)"
+          f.puts "= sprite($group_name, $image_name, $offset=0)"
           sprite_files.each do |sprite_file, sprites|
             background_url = @builder.background_url(sprite_file)
             sprites.each do |sprite|
@@ -23,12 +23,12 @@ module Sprite
               #{sprite[:x]}px #{sprite[:y]}px
 
               if sprite[:align] == 'horizontal'
-                background_offset = "\#{#{sprite[:x]}+!offset}px #{sprite[:y]}px"
+                background_offset = "\#{#{sprite[:x]}+$offset}px #{sprite[:y]}px"
               else
-                background_offset = "#{sprite[:x]}px \#{#{sprite[:y]}+!offset}px"
+                background_offset = "#{sprite[:x]}px \#{#{sprite[:y]}+$offset}px"
               end
 
-              f.puts %{if !group_name == "#{sprite[:group]}" and !image_name == "#{sprite[:name]}"}
+              f.puts %{if $group_name == "#{sprite[:group]}" and $image_name == "#{sprite[:name]}"}
               f.puts "    background: #{background_url} repeat #{background_offset}"
               f.puts "    width: #{sprite[:width]}px"
               f.puts "    height: #{sprite[:height]}px"
