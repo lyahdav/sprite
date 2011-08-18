@@ -16,9 +16,6 @@ module Sprite
             background_url = @builder.background_url(sprite_file)
             sprites.each do |sprite|
               f << "  @"
-              if add_else
-                f << "else "
-              end
               add_else = true
               #{sprite[:x]}px #{sprite[:y]}px
 
